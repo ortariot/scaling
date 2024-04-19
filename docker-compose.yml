@@ -12,7 +12,6 @@ services:
     volumes:
       - ./conf/postgres_b/shards.sql:/docker-entrypoint-initdb.d/start.sql
 
-
   postgres_b1:
     image: postgres:latest
     container_name: "postgres_b1"
@@ -23,8 +22,6 @@ services:
       - "5633:5432"
     volumes:
       - ./conf/postgres_b1/shards.sql:/docker-entrypoint-initdb.d/start.sql
-
-
 
   postgres_b2:
     image: postgres:latest
