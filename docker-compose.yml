@@ -10,9 +10,7 @@ services:
     ports:
       - "5632:5432"
     volumes:
-      # - ./conf/postgres_b:/scripts
       - ./conf/postgres_b/shards.sql:/docker-entrypoint-initdb.d/start.sql
-      #- postgres-data:/var/lib/postgresql/data
 
 
   postgres_b1:
@@ -24,9 +22,8 @@ services:
     ports:
       - "5633:5432"
     volumes:
-      # - ./conf/postgres_b1/:/scripts/
       - ./conf/postgres_b1/shards.sql:/docker-entrypoint-initdb.d/start.sql
-      #- postgres-data:/var/lib/postgresql/data
+
 
 
   postgres_b2:
@@ -38,9 +35,7 @@ services:
     ports:
       - "5634:5432"
     volumes:
-      # - ./conf/postgres_b2/:/scripts/
       - ./conf/postgres_b2/shards.sql:/docker-entrypoint-initdb.d/start.sql
-      #- postgres-data:/var/lib/postgresql/data
 
   postgres_b3:
     image: postgres:latest
@@ -51,10 +46,5 @@ services:
     ports:
       - "5635:5432"
     volumes:
-      # - ./conf/postgres_b3/:/scripts/
       - ./conf/postgres_b3/shards.sql:/docker-entrypoint-initdb.d/start.sql
-      #- postgres-data:/var/lib/postgresql/data
 
-# volumes:
-#   postgres-data:
-#     driver: local
