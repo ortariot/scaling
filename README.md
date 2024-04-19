@@ -5,7 +5,6 @@
 ```
 rename .env_example to .env
 docker compose up 
-
 ```
 
 ## to insert test data
