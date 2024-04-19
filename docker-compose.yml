@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres_b:
+    image: postgres:latest
+    container_name: "postgres_b"
+    env_file: .env
+    environment:
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5632:5432"
+    volumes:
+      # - ./conf/postgres_b:/scripts
+      - ./conf/postgres_b/shards.sql:/docker-entrypoint-initdb.d/start.sql
+      #- postgres-data:/var/lib/postgresql/data
+
+
+  postgres_b1:
+    image: postgres:latest
+    container_name: "postgres_b1"
+    env_file: .env
+    environment:
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5633:5432"
+    volumes:
+      # - ./conf/postgres_b1/:/scripts/
+      - ./conf/postgres_b1/shards.sql:/docker-entrypoint-initdb.d/start.sql
+      #- postgres-data:/var/lib/postgresql/data
+
+
+  postgres_b2:
+    image: postgres:latest
+    container_name: "postgres_b2"
+    env_file: .env
+    environment:
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5634:5432"
+    volumes:
+      # - ./conf/postgres_b2/:/scripts/
+      - ./conf/postgres_b2/shards.sql:/docker-entrypoint-initdb.d/start.sql
+      #- postgres-data:/var/lib/postgresql/data
+
+  postgres_b3:
+    image: postgres:latest
+    container_name: "postgres_b3"
+    env_file: .env
+    environment:
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5635:5432"
+    volumes:
+      # - ./conf/postgres_b3/:/scripts/
+      - ./conf/postgres_b3/shards.sql:/docker-entrypoint-initdb.d/start.sql
+      #- postgres-data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres-data:
+#     driver: local
