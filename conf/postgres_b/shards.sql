@@ -76,16 +76,16 @@ CREATE RULE books_delete AS ON DELETE TO books
     DO INSTEAD NOTHING;
 
 CREATE RULE books_insert_to_1 AS ON INSERT TO books
-    WHERE (category_id <= 3)
+    WHERE (year <= 1920)
     DO INSTEAD INSERT INTO books_1
                VALUES (NEW.*);
 
 CREATE RULE books_insert_to_2 AS ON INSERT TO books
-    WHERE (category_id > 3 and category_id <= 6)
+    WHERE (year > 1920 and year <= 1999)
     DO INSTEAD INSERT INTO books_2
                VALUES (NEW.*);
 
 CREATE RULE books_insert_to_3 AS ON INSERT TO books
-    WHERE (category_id > 6)
+    WHERE (year > 1999)
     DO INSTEAD INSERT INTO books_3
                VALUES (NEW.*);
